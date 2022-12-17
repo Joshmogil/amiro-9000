@@ -26,7 +26,7 @@ GROUP_CHAT_NAME="Mr. Arige and"
 #----> see vobjects screenshots to see exactly what it is looking for
 
 #Confidence intervals could use some adjustment.
-"""
+
 click(pyautogui.locateCenterOnScreen("./vobjects/firefox.png",confidence=.75))
 #double_click(pyautogui.locateCenterOnScreen("./vobjects/full_screen_browser.png",confidence=.75))
 time.sleep(4.5)
@@ -62,8 +62,6 @@ while keep_trying:
 
 time.sleep(3.1)
 
-
-"""
 click(pyautogui.locateCenterOnScreen("./vobjects/fbm/search.png",confidence=.88))
 time.sleep(.21)
 pyautogui.typewrite(GROUP_CHAT_NAME,0.08)
@@ -75,7 +73,7 @@ time.sleep(.2)
 click(pyautogui.locateCenterOnScreen("./vobjects/fbm/message_box.png",confidence=.88))
 
 
-#pyautogui.typewrite("Sending this message from a robot [] _ []. Check the video I just sent you!",0.08)
+pyautogui.typewrite("Sending this message from a robot [] _ []. Check the video I just sent you!",0.08)
 
 #click(pyautogui.locateCenterOnScreen("./vobjects/fbm/send.png",confidence=.88))
 
