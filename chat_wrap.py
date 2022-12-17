@@ -36,11 +36,8 @@ def get_personality():
 def get_seed():
     new_list = []
   
-    [new_list.append("random motivational saying about life") for i in range (12)]
-    [new_list.append(f"random motivation saying about the gym") for i in range (12)]
-    [new_list.append(f"random motivation saying about the waking up early not about birds") for i in range (12)]
-    [new_list.append("statement about grinding hard at the gym") for i in range (12)]
-    [new_list.append(f"statement about waking up incredibly early") for i in range (12)]
+    [new_list.append("statement about grinding hard at the gym!") for i in range (12)]
+    [new_list.append(f"statement about waking up incredibly early!") for i in range (12)]
     [new_list.append(f"very negative statement about vignesh lacking morals") for i in range (10)]
     [new_list.append(f"very negative statement about nikhil being nasty") for i in range (10)]
 
