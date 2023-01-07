@@ -4,13 +4,15 @@ import random
 import datetime
 import time
 import os
-#os.system("xset dpms force off")
+os.system("xset dpms force off")
 # using now() to get current time
 
 
 active_hours={
     (1,2):"night",
-    (4,9):"morning",
+    (3,4):"undefined",
+    (5,9):"morning",
+    (10,16):"undefined",
     (17,24):"night"
     }
 
@@ -33,18 +35,17 @@ while True:
         for key in max_messages:
             max_messages[key]=0 #reset the count for the day to 0   
 
-
+    print(current_period)
     for period in active_hours:
         if ct.hour >= period[0] and ct.hour <= period[1]:
             if current_period != active_hours[period]:
                 print("period has changed")
                 current_period=active_hours[period]
+                period_set= True
                 messages_in_current_period=0 #reset current messages in period to 0 because period changed.
             current_period_hours=period
-        else:
-            current_period="not-defined"
 
-    time.sleep(60)
+    time.sleep(5)
     print(f"current period: {current_period}")
     if current_period != "not-defined":
         prob_range=((current_period_hours[1]-current_period_hours[0])*60)/max_messages[current_period]
