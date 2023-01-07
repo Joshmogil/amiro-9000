@@ -30,7 +30,7 @@ GROUP_CHAT_NAME="Mr. Arige and"
 def send_mess_to_chat():
     click(pyautogui.locateCenterOnScreen("./vobjects/firefox.png",confidence=.75))
     #double_click(pyautogui.locateCenterOnScreen("./vobjects/full_screen_browser.png",confidence=.75))
-    time.sleep(12)
+    time.sleep(8)
     click(pyautogui.locateCenterOnScreen("./vobjects/fb_logo.png",confidence=.88))
     time.sleep(3)
 
@@ -48,7 +48,9 @@ def send_mess_to_chat():
     double_click(pyautogui.locateCenterOnScreen("./vobjects/fblogin/login_ok.png",confidence=.88))
     time.sleep(3.8)
 
-    click(pyautogui.locateCenterOnScreen("./vobjects/fbm/amirosmessages.png",confidence=.88))
+    click(pyautogui.locateCenterOnScreen("./vobjects/fbm/amirosmessages.png",confidence=.92))
+    time.sleep(.05)
+    click(pyautogui.locateCenterOnScreen("./vobjects/fbm/amiromessengernotif.png",confidence=.92))
     time.sleep(.21)
     #click(pyautogui.locateCenterOnScreen("./vobjects/fbm/messenger.png",confidence=.88))
     """
@@ -80,7 +82,7 @@ def send_mess_to_chat():
 
     pyautogui.typewrite(message,0.08)
 
-    click(pyautogui.locateCenterOnScreen("./vobjects/fbm/send.png",confidence=.88))
+    #click(pyautogui.locateCenterOnScreen("./vobjects/fbm/send.png",confidence=.88))
     click(pyautogui.locateCenterOnScreen("./vobjects/closewindow.png",confidence=.88))
 
 

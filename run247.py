@@ -9,13 +9,14 @@ os.system("xset dpms force off")
 
 
 active_hours={
+    (1,2):"night",
     (4,9):"morning",
-    (17,23):"night"
+    (17,24):"night"
     }
 
 max_messages={
     "morning":1,
-    "night":140
+    "night":180
 }
 
 current_day=datetime.datetime.now().day
@@ -40,17 +41,20 @@ while True:
                 messages_in_current_period=0 #reset current messages in period to 0 because period changed.
             current_period_hours=period
 
-    time.sleep(2)
+    time.sleep(10)
 
     prob_range=((current_period_hours[1]-current_period_hours[0])*60)/max_messages[current_period]
     print(f"Probability for current period {current_period}: {prob_range}. Messages in current period: {messages_in_current_period}. Max messages allowed: {max_messages[current_period]} ")
-    if random.choice(range(int(prob_range))) == 1:
+    
+    chosen_number= random.choice(range(int(prob_range)))
+    print(f"{chosen_number} chosen out of {prob_range}, will send message if 1 is selected.")
+    if chosen_number == 1:
         if messages_in_current_period < max_messages[current_period]:
             print("Sending message to chat")
             messages_in_current_period+=1
             send_mess_to_chat()
             os.system("xset dpms force off")
-            exit()
+
         else:
             print("Max messages for this time period already sent.")
     
