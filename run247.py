@@ -45,7 +45,7 @@ while True:
                 messages_in_current_period=0 #reset current messages in period to 0 because period changed.
             current_period_hours=period
 
-    time.sleep(5)
+    time.sleep(59)
     print(f"current period: {current_period}")
     if current_period != "not-defined":
         prob_range=((current_period_hours[1]-current_period_hours[0])*60)/max_messages[current_period]
