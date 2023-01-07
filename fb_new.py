@@ -32,7 +32,7 @@ def send_mess_to_chat():
     #double_click(pyautogui.locateCenterOnScreen("./vobjects/full_screen_browser.png",confidence=.75))
     time.sleep(8)
     click(pyautogui.locateCenterOnScreen("./vobjects/fb_logo.png",confidence=.88))
-    time.sleep(3)
+    time.sleep(4)
 
     click(pyautogui.locateCenterOnScreen("./vobjects/fblogin/mobile.png",confidence=.75))
     time.sleep(.30)
@@ -46,14 +46,15 @@ def send_mess_to_chat():
     time.sleep(4.7)
 
     double_click(pyautogui.locateCenterOnScreen("./vobjects/fblogin/login_ok.png",confidence=.88))
-    time.sleep(3.8)
+    time.sleep(4.5)
 
     click(pyautogui.locateCenterOnScreen("./vobjects/fbm/amirosmessages.png",confidence=.92))
     time.sleep(.05)
     click(pyautogui.locateCenterOnScreen("./vobjects/fbm/amiromessengernotif.png",confidence=.92))
     time.sleep(.21)
     #click(pyautogui.locateCenterOnScreen("./vobjects/fbm/messenger.png",confidence=.88))
-    """
+    time.sleep(2)
+    attempts = 0
     keep_trying = True
     while keep_trying:
         try:
@@ -63,10 +64,13 @@ def send_mess_to_chat():
             pyautogui.leftClick()
             keep_trying = False
         except:
+            attempts += 1
+            print(attempts)
+            if attempts == 5: keep_trying = False
             pass
-    """
+    
 
-    time.sleep(3.1)
+    time.sleep(4)
 
     click(pyautogui.locateCenterOnScreen("./vobjects/fbm/search.png",confidence=.88))
     time.sleep(.21)
@@ -81,10 +85,13 @@ def send_mess_to_chat():
     message = talk()
 
     pyautogui.typewrite(message,0.08)
-
-    #click(pyautogui.locateCenterOnScreen("./vobjects/fbm/send.png",confidence=.88))
+    time.sleep(.2)
+    click(pyautogui.locateCenterOnScreen("./vobjects/fbm/send.png",confidence=.88))
+    time.sleep(4)
     click(pyautogui.locateCenterOnScreen("./vobjects/closewindow.png",confidence=.88))
 
 
+if __name__ == "__main__":
+    send_mess_to_chat()
 
 print(screenWidth, screenHeight)

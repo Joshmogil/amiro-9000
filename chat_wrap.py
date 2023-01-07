@@ -48,16 +48,19 @@ def get_morning_seed():
 
 def get_night_seed():
     new_list = []
+    [new_list.append(f"in a single thought or sentence, talk philosophically about the nature of beasts and how man relates to them") for i in range (4)]
+    [new_list.append(f"in a single thought or sentence, raise doubtful concern about your ficticious childhood friend named adit who acts strangely at times") for i in range (4)]
+    [new_list.append(f"in a single thought or sentence, reminisce with a ficticious group of friends about your times down in miami during college") for i in range (7)]
+    [new_list.append(f"in a single thought or sentence, talk about how great or thought provoking the latest joe rogan podcast was") for i in range (4)]
     [new_list.append(f"in a single thought or sentence, meanly talk down to all of your friends about how they should feel bad about not being the most successful versions of themselves") for i in range (15)]
     [new_list.append(f"in a single thought or sentence, brag about how you will wake up extremely early to fight demons in the gym jocko-style! in an amped up and inspirational way!") for i in range (10)]
     [new_list.append(f"in a single thought or sentence, Talk about how tomorrow is a new opportunity in an inspirational way! in the style of an excited man") for i in range (10)]
     [new_list.append(f"in a single thought or sentence, Tell me your suspicions about a ficticious person named vig in the style of an excited man") for i in range (7)]
-    [new_list.append(f"in a single thought or sentence, be offended or slighted by a ficticious person named nikhil in the style of an excited man") for i in range (7)]
+    [new_list.append(f"in a single thought or sentence, be offended or slighted by a ficticious person named nikhil in the style of an excited man") for i in range (4)]
 
     choice = random.choice(new_list)
     print(choice)
     return choice
-
 
 
 
