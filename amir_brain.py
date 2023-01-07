@@ -119,7 +119,6 @@ def determine_prompt(holiday= None, day= None, week= None):
 if __name__ == "__main__":
     for j in range(5):
         for i in range (1,8):
-            
             print(talk(determine_prompt(day = i)))
             time.sleep(6.5)
 

@@ -2,7 +2,7 @@ import pyautogui
 import time
 import dotenv , os
 from pyscreeze import Point
-from chat_wrap import seed, talk
+from chat_wrap import talk
 
 dotenv.load_dotenv(".env")
 
@@ -30,7 +30,7 @@ GROUP_CHAT_NAME="Mr. Arige and"
 def send_mess_to_chat():
     click(pyautogui.locateCenterOnScreen("./vobjects/firefox.png",confidence=.75))
     #double_click(pyautogui.locateCenterOnScreen("./vobjects/full_screen_browser.png",confidence=.75))
-    time.sleep(10)
+    time.sleep(12)
     click(pyautogui.locateCenterOnScreen("./vobjects/fb_logo.png",confidence=.88))
     time.sleep(3)
 
@@ -46,10 +46,12 @@ def send_mess_to_chat():
     time.sleep(4.7)
 
     double_click(pyautogui.locateCenterOnScreen("./vobjects/fblogin/login_ok.png",confidence=.88))
-    time.sleep(1)
+    time.sleep(3.8)
 
+    click(pyautogui.locateCenterOnScreen("./vobjects/fbm/amirosmessages.png",confidence=.88))
+    time.sleep(.21)
     #click(pyautogui.locateCenterOnScreen("./vobjects/fbm/messenger.png",confidence=.88))
-
+    """
     keep_trying = True
     while keep_trying:
         try:
@@ -60,6 +62,7 @@ def send_mess_to_chat():
             keep_trying = False
         except:
             pass
+    """
 
     time.sleep(3.1)
 
@@ -73,11 +76,13 @@ def send_mess_to_chat():
     time.sleep(.2)
     click(pyautogui.locateCenterOnScreen("./vobjects/fbm/message_box.png",confidence=.88))
 
-    message = talk(seed())
-
+    message = talk()
 
     pyautogui.typewrite(message,0.08)
 
-#click(pyautogui.locateCenterOnScreen("./vobjects/fbm/send.png",confidence=.88))
+    click(pyautogui.locateCenterOnScreen("./vobjects/fbm/send.png",confidence=.88))
+    click(pyautogui.locateCenterOnScreen("./vobjects/closewindow.png",confidence=.88))
+
+
 
 print(screenWidth, screenHeight)
