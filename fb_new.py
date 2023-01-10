@@ -2,7 +2,7 @@ import pyautogui
 import time
 import dotenv , os
 from pyscreeze import Point
-from chat_wrap import talk
+from chat_wrap import get_broscience
 
 dotenv.load_dotenv(".env")
 
@@ -28,6 +28,7 @@ GROUP_CHAT_NAME="Mr. Arige and"
 
 #Confidence intervals could use some adjustment.
 def send_mess_to_chat():
+    """
     click(pyautogui.locateCenterOnScreen("./vobjects/firefox.png",confidence=.75))
     #double_click(pyautogui.locateCenterOnScreen("./vobjects/full_screen_browser.png",confidence=.75))
     time.sleep(8)
@@ -78,17 +79,20 @@ def send_mess_to_chat():
     time.sleep(.35)
     click(pyautogui.locateCenterOnScreen("./vobjects/cvs/gc_pic.png",confidence=.88))
     time.sleep(1.8)
+    """
+
     pyautogui.scroll(-250)
     time.sleep(.2)
     click(pyautogui.locateCenterOnScreen("./vobjects/fbm/message_box.png",confidence=.88))
 
-    message = talk()
+    message = get_broscience()
 
     pyautogui.typewrite(message,0.08)
     time.sleep(.2)
-    click(pyautogui.locateCenterOnScreen("./vobjects/fbm/send.png",confidence=.88))
-    time.sleep(4)
-    click(pyautogui.locateCenterOnScreen("./vobjects/closewindow.png",confidence=.88))
+    #click(pyautogui.locateCenterOnScreen("./vobjects/fbm/send.png",confidence=.88))
+    #time.sleep(2)
+    
+    #click(pyautogui.locateCenterOnScreen("./vobjects/closewindow.png",confidence=.88))
 
 
 if __name__ == "__main__":

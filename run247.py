@@ -4,65 +4,52 @@ import random
 import datetime
 import time
 import os
-os.system("xset dpms force off")
+#os.system("xset dpms force off")
 # using now() to get current time
 
 
-active_hours={
-    (1,2):"night",
-    (3,4):"undefined",
-    (5,9):"morning",
-    (10,16):"undefined",
-    (17,24):"night"
+active_hours_messages={
+    (1,2):1,
+    (16,23):2,
+    (3,7):1
     }
 
-max_messages={
-    "morning":1,
-    "night":2,
-    "not-defined":0
-}
 
-current_day=datetime.datetime.now().day
-current_period="not-defined"
-current_period_hours=None
-messages_in_current_period=0
 
+current_day=datetime.datetime.now().day - 1
+print(current_day)
+
+
+message_times = []
 while True:
+        
+    time.sleep(.25)
     ct = datetime.datetime.now()
-    print(f"\n{ct.day}/{ct.hour}:{ct.minute}:{ct.second}")
     if ct.day != current_day:
-        current_day = ct.day
-        for key in max_messages:
-            max_messages[key]=0 #reset the count for the day to 0   
+        current_day=ct.day
+        for times in active_hours_messages:
+            for i in range(active_hours_messages[times]):
+                slotting = True
+                while slotting:
+                    hour = random.randrange(times[0],times[1]+1)
+                    minutes = random.randrange(1,60)
+                    if hour not in [int(event.split("/")[0]) for event in message_times]:
+                        message_times.append(f"{hour}/{minutes}")
+                        slotting=False
 
-    print(current_period)
-    for period in active_hours:
-        if ct.hour >= period[0] and ct.hour <= period[1]:
-            if current_period != active_hours[period]:
-                print("period has changed")
-                current_period=active_hours[period]
-                period_set= True
-                messages_in_current_period=0 #reset current messages in period to 0 because period changed.
-            current_period_hours=period
 
-    time.sleep(59)
-    print(f"current period: {current_period}")
-    if current_period != "not-defined":
-        prob_range=((current_period_hours[1]-current_period_hours[0])*60)/max_messages[current_period]
-        
-        print(f"Probability: {prob_range}. Messages in current period: {messages_in_current_period}. Max messages allowed: {max_messages[current_period]} ")
-        
-        chosen_number= random.choice(range(int(prob_range)))
-        print(f"{chosen_number} chosen out of {prob_range}, will send message if 1 is selected.")
-        if chosen_number == 1:
-            if messages_in_current_period < max_messages[current_period]:
-                print("Sending message to chat")
-                messages_in_current_period+=1
-                send_mess_to_chat()
-                os.system("xset dpms force off")
+    for message_event in message_times:
+        if f"{ct.hour}/{ct.minute}" == message_event:
+            print("sending message")
+            
+            send_mess_to_chat()
+            message_times.remove(message_event)
+        else: print(f"{ct.hour}/{ct.minute} != {message_event}")
+            
+    print(f"currently scheduled events: {message_times}")
+    print(f"\n{ct.day}/{ct.hour}:{ct.minute}:{ct.second}")
+    os.system("xset dpms force off")
 
-            else:
-                print("Max messages for this time period already sent.")
     
             
         
