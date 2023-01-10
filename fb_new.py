@@ -89,8 +89,8 @@ def send_mess_to_chat():
 
     pyautogui.typewrite(message,0.08)
     time.sleep(.2)
-    #click(pyautogui.locateCenterOnScreen("./vobjects/fbm/send.png",confidence=.88))
-    #time.sleep(2)
+    click(pyautogui.locateCenterOnScreen("./vobjects/fbm/send.png",confidence=.88))
+    time.sleep(2)
     
     #click(pyautogui.locateCenterOnScreen("./vobjects/closewindow.png",confidence=.88))
 
